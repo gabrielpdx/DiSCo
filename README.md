@@ -1,4 +1,4 @@
-Copyright (c) 2015 K. Gabriel Rosati
+Copyright &copy; 2015 K. Gabriel Rosati
 
 Thank you for your interest in DiSCo, Discrete Structures Computation for fun, for everyone!
 
