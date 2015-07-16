@@ -1,5 +1,7 @@
 import sqlite3
 
+from question_class import *
+
 
 TABLE_HEADINGS = ("primary subject: ", "secondary subject: ",
         "family: ", "difficulty: ", "question: ",
@@ -29,5 +31,7 @@ rows = c.fetchall()
 for row in rows:
     row_pretty_print(row)
 
+testQ = Question(rows[0])
+print(testQ.stringRepresentation())
 
 conn.close()
