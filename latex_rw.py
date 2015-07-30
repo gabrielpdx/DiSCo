@@ -1,3 +1,11 @@
+# Copyright (c) 2015 K. Gabriel Rosati
+#
+# This software is released under the LGPL V3 or later.
+# Please see the files COPYING and COPYING.LESSER in the
+# source distribution of this software for license terms.
+#
+
+
 import sqlite3
 from latex_constants import file_start, file_end
 "from disco_db_setup import row_pretty_print, row_to_string"

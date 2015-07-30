@@ -1,3 +1,11 @@
+# Copyright (c) 2015 K. Gabriel Rosati
+#
+# This software is released under the LGPL V3 or later.
+# Please see the files COPYING and COPYING.LESSER in the
+# source distribution of this software for license terms.
+#
+
+
 import unittest
 reference_filename = "dbsample.tex"
 output_filename = "dup.tex"

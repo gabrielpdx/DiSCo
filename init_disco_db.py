@@ -1,3 +1,10 @@
+# Copyright (c) 2015 K. Gabriel Rosati
+#
+# This software is released under the LGPL V3 or later.
+# Please see the files COPYING and COPYING.LESSER in the
+# source distribution of this software for license terms.
+#
+
 import sqlite3
 
 from insert_sample_qrs import insert_sample_qrs

@@ -1,8 +1,13 @@
 # Copyright (c) 2015 K. Gabriel Rosati
-# Adapted from www.tkdocs.com/tutorial/firstexample.html 
-# tkdocs Copyright (c) 2007-2015 Mark Roseman
+#
+# This software is released under the Creative Commons
+# Attribution-NonCommercial-ShareAlike 2.5 Canada license
+# (available at http://creativecommons.org/licenses/by-nc-sa/2.5/ca/legalcode.en)
+# because it is based on sample code at
+# www.tkdocs.com/tutorial/firstexample.html 
+# Copyright (c) 2007-2015 Mark Roseman
 
-
+ 
 # GUI starts
 
 from tkinter import *
