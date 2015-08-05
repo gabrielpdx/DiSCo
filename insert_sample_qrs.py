@@ -5,16 +5,12 @@
 # source distribution of this software for license terms.
 #
 
+from question_class import Question
 
-"""import sqlite3
 
-conn = sqlite3.connect('disco.db')
-
-c = conn.cursor()
-"""
 
 #insert examples  
-def insert_sample_qrs (cursor):        
+def insert_sample_qrs (cursor, question):        
     cursor.execute('''INSERT INTO questions VALUES(
                 "example",
                 "sub-example",
