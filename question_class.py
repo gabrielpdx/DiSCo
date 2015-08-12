@@ -5,8 +5,24 @@
 # source distribution of this software for license terms.
 #
 
+class MetaFoo(type):
+    def __iter__(self):
+        for attr in dir(Foo):
+            if not attr.startswith("__"):
+                yield attr
 
-class Question:
+class Foo(metaclass=MetaFoo):
+    bar = "bar"
+    baz = 1
+
+class MetaQuestion(type):
+    def __iter__(self):
+        for attribute in dir(Question):
+            if not attr.startswith("__"):
+                yield attribute
+
+
+class Question(metaclass=MetaQuestion):
     """A question, its responses, and metadata"""
     def __init__(self, rowList = None):
         if (rowList is None):
@@ -26,6 +42,7 @@ class Question:
             self.correctResponseIndex = rowList[5]
             self.responses = rowList[6:]
 
+"""
     def stringRepresentation (self):
         listOut = [
             self.primarySubject,
@@ -37,3 +54,12 @@ class Question:
             str("\n".join(self.responses))
         ]
         return ("\n" .join(listOut))
+        """
+def printQuestion(question):
+    output = ""
+    for attribute in question:
+        output += attribute
+    return output
+    
+lotus = Question()
+printQuestion(lotus)

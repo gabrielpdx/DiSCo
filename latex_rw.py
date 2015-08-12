@@ -8,7 +8,7 @@
 
 import sqlite3
 from latex_constants import file_start, file_end
-"from disco_db_setup import row_pretty_print, row_to_string"
+
 
 fileName = "dup.tex"
 
