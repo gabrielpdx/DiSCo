@@ -36,8 +36,13 @@ class Question():
             choice,
         ]
         for response in self.responses:
+            if (response[0] != '{'):
+                response = '{' + response
+            if (response[-1] != '}'):
+                response = response + '}'
             output.append("  " + response)
         output.append(end)
+
         return output
 
     def printQuestion (self):

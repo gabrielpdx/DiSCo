@@ -8,7 +8,7 @@
 
 import sqlite3
 from latex_constants import file_start, file_end
-from question_class import Question
+from Question import Question
 
 
 fileName = "generatedQuiz.tex"
@@ -26,21 +26,24 @@ def fileW(quizList):
     file.writelines(quizList)
     file.close()
 
-
+'''
 conn = sqlite3.connect('disco.db')
 c = conn.cursor()
+'''
 
-c.execute("SELECT * FROM questions")
-quiz = c.fetchall()
+def writeDBToLatex(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM questions")
+    quiz = cursor.fetchall()
+    
+    #conn.close()
 
-conn.close()
+    quiz_to_print = []
 
-quiz_to_print = []
+    for row in quiz:
+        quiz_to_print.append('\n')
+        questionLatex = Question(row).latexLines()
+        for line in questionLatex:
+            quiz_to_print.append(line + '\n')
 
-for row in quiz:
-    quiz_to_print.append('\n')
-    questionLatex = Question(row).latexLines()
-    for line in questionLatex:
-        quiz_to_print.append(line + '\n')
-
-fileW(quiz_to_print)
+    fileW(quiz_to_print)
