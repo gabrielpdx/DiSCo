@@ -7,8 +7,8 @@ introductory Discrete Mathematics e.g. CS 250 at Portland State University MCECS
 
 ### Status:
 Currently DiSCo supports the creation and verification of an SQLite database
-with a schema suitable for storing multiple choice quiz/test questions. A module for
-generating Latex suitable for use in the classroom is next in the backlog.
+with a schema suitable for storing multiple choice quiz/test questions. The contents
+of the database can then be output to a Latex test format for publishing and use.
 
 ### Next Steps:
 See the [Issue Tracker](https://github.com/gabrielpdx/DiSCo/issues) and you
