@@ -5,13 +5,13 @@
 # source distribution of this software for license terms.
 #
 
-from question_class import Question
+#from question_class import Question
 
 
 
 #insert examples  
-def insert_sample_qrs (cursor, question):        
-    cursor.execute('''INSERT INTO questions VALUES(
+def insert_sample_qrs (cursor):#, question):
+    cursor.execute(r'''INSERT INTO questions VALUES(
                 "example",
                 "sub-example",
                 "exfam",
@@ -24,7 +24,7 @@ Let $X=A~and~(not~B)$ and $Y=not(A\ or\ (not~B))$.",
                 "{$X=true$ and $Y=false$}",
                 "{$X=true$ and $Y=true$}")
                 ''')
-    cursor.execute('''INSERT INTO questions VALUES(
+    cursor.execute(r'''INSERT INTO questions VALUES(
                 "example",
                 "sub-example",
                 "exfam",
@@ -37,7 +37,7 @@ Let $Y$ be the statement: \emph{if\ B\ then\ A}.",
                 "{$X$ is the antecendent of $Y$}",
                 "{$X$ is the contrapositive of $Y$}")
                 ''')
-    cursor.execute('''INSERT INTO questions VALUES(
+    cursor.execute(r'''INSERT INTO questions VALUES(
                 "example",
                 "sub-example",
                 "exfam",
@@ -51,7 +51,7 @@ natural number.",
                 "{$f$ is bijective}",
                 "{none of the above}")
                 ''')
-    cursor.execute('''INSERT INTO questions VALUES(
+    cursor.execute(r'''INSERT INTO questions VALUES(
                 "example",
                 "sub-example",
                 "exfam",
@@ -63,7 +63,7 @@ natural number.",
                 "{Different elements of the domain are mapped to different elements of the codomain}",
                 "{The size of the codomain is not smaller than the size of the range}")
                 ''')
-    cursor.execute('''INSERT INTO questions VALUES(
+    cursor.execute(r'''INSERT INTO questions VALUES(
                 "example",
                 "sub-example",
                 "exfam",
@@ -71,12 +71,13 @@ natural number.",
                 "Let $R$ be the relation on $\naturals \times \naturals$ defined by
 $x\,R\,y$ iff $x < 3\,y$.",
                 0,
-                "{$10\,R\,4$ and $4\,R\,10$}}",
+                "{$10\,R\,4$ and $4\,R\,10$}",
                 "{$10\,R\,4$ and not $4\,R\,10$}",
                 "{not $10\,R\,4$ and $4\,R\,10$}",
-                "{not $10\,R\,4$ and not $4\,R\,10$}}")
+                "{not $10\,R\,4$ and not $4\,R\,10$}")
                 ''')
 """
+#Some more sample questions
 
 \begin{ex}
 Let $A=\{2,3,5,7\}$ and $B=\{1,2,6,8\}$.

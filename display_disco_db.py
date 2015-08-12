@@ -7,7 +7,7 @@
 
 import sqlite3
 
-#from question_class import *
+from question_class import *
 
 
 TABLE_HEADINGS = ("primary subject: ", "secondary subject: ",
@@ -37,7 +37,12 @@ rows = c.fetchall()
 
 for row in rows:
     print('\n')
+    q = Question(row)
+    for line in q.latexLines():
+        print(line)
     row_pretty_print(row)
+
+
 
 """
 testQ = Question(rows[0])
