@@ -7,7 +7,7 @@
 
 import sqlite3
 
-from question_class import *
+#from question_class import *
 
 
 TABLE_HEADINGS = ("primary subject: ", "secondary subject: ",
@@ -36,9 +36,11 @@ c.execute("SELECT * FROM questions")
 rows = c.fetchall()
 
 for row in rows:
+    print('\n')
     row_pretty_print(row)
 
+"""
 testQ = Question(rows[0])
 print(testQ.stringRepresentation())
-
+"""
 conn.close()
