@@ -15,9 +15,6 @@ fileName = "generatedQuiz.tex"
 
 
 def fileW(quizList):
-    print("From fileW:")
-    for element in quizList:
-        print(element)
     file = ""
     while not file:
         file = open(fileName,"w")
@@ -35,7 +32,7 @@ def writeDBToLatex(conn):
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM questions")
     quiz = cursor.fetchall()
-    
+
     #conn.close()
 
     quiz_to_print = []

@@ -6,32 +6,39 @@
 #
 
 import sqlite3
+from Question import Question
 
 from insertSampleQs import insertSampleQs
 
-
-conn = sqlite3.connect('disco.db')
-c = conn.cursor()
-
-#insert
-cursor.execute(r'''INSERT INTO questions VALUES(
-                "example",
-                "sub-example",
-                "exfam",
-                5,
-                "Let $A=false$ and $B=true$. \\
-Let $X=A~and~(not~B)$ and $Y=not(A\ or\ (not~B))$.",
-                1,
-                "$X=false$ and $Y=false$",
-                "$X=false$ and $Y=true$",
-                "$X=true$ and $Y=false$",
-                "$X=true$ and $Y=true$")
-                ''')
+TABLE_HEADINGS = ("Primary subject: ", "Secondary subject: ",
+                  "Family: ", "Difficulty: ", "Question: ",
+                  "Correct index: ", "Response 1: ", "Response 2: ",
+                  "Response 3: ", "Response 4: ")
 
 
+class DBWriter():
+    """Writes user input to the database"""
+    def __init__(self, conn):
+        self.cursor = conn.cursor()
+        self.questions = []
 
-insertSampleQs(c)
+    def getQuestion(self):
+        row = []
+        for heading in TABLE_HEADINGS:
+            row.append(input(heading))
+        self.questions.append(Question(row))
 
-conn.commit()
+    def writeToDB(self):
+        for question in self.questions:
+            self.cursor.execute
+            ("INSERT INTO questions VALUES({})").format(question.asRow)
+            print("INSERT INTO questions VALUES({})".format(question.asRow))
 
-conn.close()
+
+    def getUserInput(self):
+        session = 'Y'
+        while (session == 'Y'):
+            self.getQuestion()
+            session = input("Insert another question? (y/n) > ")
+            session = session[0].upper()
+        self.writeToDB()
