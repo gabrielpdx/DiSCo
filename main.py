@@ -17,8 +17,8 @@ def main():
 
     initDiscoDB(conn)
     #insertSampleQs(conn)
-    UI = DBWriter()
-    UI.getUserInput(conn)
+    UI = DBWriter(conn)
+    UI.getUserInput()
     writeDBToLatex(conn)
 
     conn.close()
