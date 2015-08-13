@@ -9,16 +9,16 @@
 import sqlite3
 from initDiscoDB import initDiscoDB
 from insertSampleQs import insertSampleQs
-#from DBWriter import DBWriter
+from DBWriter import DBWriter
 from writeDBToLatex import writeDBToLatex
 
 def main():
     conn = sqlite3.connect('disco.db')
 
     initDiscoDB(conn)
-    insertSampleQs(conn)
-    #UI = DBWriter(conn)
-    #UI.getUserInput()
+    #insertSampleQs(conn)
+    UI = DBWriter()
+    UI.getUserInput(conn)
     writeDBToLatex(conn)
 
     conn.close()

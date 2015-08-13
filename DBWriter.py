@@ -18,8 +18,8 @@ TABLE_HEADINGS = ("Primary subject: ", "Secondary subject: ",
 
 class DBWriter():
     """Writes user input to the database"""
-    def __init__(self, conn):
-        self.cursor = conn.cursor()
+    def __init__(self):
+        #self.cursor = conn.cursor()
         self.questions = []
 
     def getQuestion(self):
@@ -28,17 +28,27 @@ class DBWriter():
             row.append(input(heading))
         self.questions.append(Question(row))
 
-    def writeToDB(self):
+    def writeToDB(self, conn):
+        cursor = conn.cursor()
         for question in self.questions:
-            self.cursor.execute
-            ("INSERT INTO questions VALUES({})").format(question.asRow)
-            print("INSERT INTO questions VALUES({})".format(question.asRow))
+            CSVString = ""
+            for column in question.asRow:
+                CSVString += ('"'+column+'"')
+                if (column != question.asRow[-1]):
+                    CSVString += ','
+            cursor.execute('''INSERT INTO questions VALUES('''
+            + CSVString + ''')''')
+            print(r'''INSERT INTO questions VALUES({})'''.format(CSVString))
+        conn.commit()
 
 
-    def getUserInput(self):
+    def getUserInput(self, conn):
         session = 'Y'
         while (session == 'Y'):
             self.getQuestion()
+            print("Added question. All row content:")
+            for question in self.questions:
+                print(question.question)
             session = input("Insert another question? (y/n) > ")
             session = session[0].upper()
-        self.writeToDB()
+        self.writeToDB(conn)

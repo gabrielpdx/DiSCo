@@ -7,3 +7,4 @@ disco.db
 *.swp
 old_utils
 old_utils/*
+*.tex
