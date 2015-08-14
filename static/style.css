@@ -1,4 +1,4 @@
-h1 {
+h1, h2, h3, h4 {
     text-align: center;
 }
 
@@ -11,12 +11,16 @@ li {
     margin-bottom: 1em;
 }
 
-#questionEntry {
+#uiColumn {
     position: relative;
     width: 70%;
     left: 15%;
     right: 15%;
+    margin-bottom: 1em;
+}
 
+#submitButton {
+    font-size: 1.5em;
 }
 
 input, textarea {

@@ -6,9 +6,7 @@ from flask import (Flask, session, abort, render_template, redirect,
 
 from initDiscoDB import initDiscoDB
 from Question import Question
-from DBWriter import DBWriter
 from latexConstants import FILE_START, FILE_END
-from writeDBToLatex import writeDBToLatex
 
 
 app = Flask(__name__)
@@ -25,11 +23,9 @@ app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 DATABASE = 'disco.db'
 
 def connect_db():
-    """Connects to the specific database."""
     rv = sqlite3.connect(app.config['DATABASE'])
     rv.row_factory = sqlite3.Row
     return rv
-
 
 def init_db():
     db = get_db()
@@ -38,16 +34,12 @@ def init_db():
     db.commit()
 
 def get_db():
-    """Opens a new database connection if there is none yet for the
-    current application context.
-    """
     if not hasattr(g, 'sqlite_db'):
         g.sqlite_db = connect_db()
     return g.sqlite_db
 
 @app.teardown_appcontext
 def close_db(error):
-    """Closes the database again at the end of the request."""
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
@@ -65,7 +57,7 @@ def oneTimeInit():
 
 @app.route("/", methods=["GET"])
 def index():
-    return render_template("mockup.html")#, saves=data)
+    return render_template("index.html")
 
 @app.route("/", methods=["POST"])
 def save():
