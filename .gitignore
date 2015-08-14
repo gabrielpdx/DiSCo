@@ -8,3 +8,6 @@ disco.db
 old_utils
 old_utils/*
 *.tex
+disco_rhcloud/venv
+disco_rhcloud/venv/*
+disco_rhcloud/__pycache__
