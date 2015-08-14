@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0em;
+}
+li {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#questionEntry {
+    position: relative;
+    width: 70%;
+    left: 15%;
+    right: 15%;
+
+}
+
+input, textarea {
+    width: 100%;
+}
