@@ -8,6 +8,7 @@ disco.db
 old_utils
 old_utils/*
 *.tex
-disco_rhcloud/venv
-disco_rhcloud/venv/*
-disco_rhcloud/__pycache__
+rhcloud/venv
+rhcloud/venv/*
+rhcloud/__pycache__
+rhcloud/.openshift

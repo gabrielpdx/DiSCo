@@ -1,0 +1,28 @@
+h1, h2, h3, h4 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0em;
+}
+li {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#uiColumn {
+    position: relative;
+    width: 70%;
+    left: 15%;
+    right: 15%;
+    margin-bottom: 1em;
+}
+
+#submitButton {
+    font-size: 1.5em;
+}
+
+input, textarea {
+    width: 100%;
+}
