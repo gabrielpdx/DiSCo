@@ -1,8 +1,6 @@
 ## **Di**screte **S**tructures **Co**mputation
 Thank you for your interest in DiSCo, Discrete Structures Computation for fun, for everyone!
-###You can use the first (pre-beta single-instance) module of the DiSCo project right now \
-on the Red Hat Openshift PaaS! Check it out:\
-[DiSCo Quiz Creator 0.1](http://disco-gpdx.rhcloud.com/)
+###You can use the first (pre-beta single-instance) module of the DiSCo project right now on the Red Hat Openshift PaaS! Check it out: [DiSCo Quiz Creator 0.1](http://disco-gpdx.rhcloud.com/)
 The complete source for this web app is in the "disco\_rhcloud" directory.
 
 ### Goals:
