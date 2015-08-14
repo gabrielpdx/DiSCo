@@ -67,6 +67,7 @@ def fileW(quizList):
     quizList.append(FILE_END)
     file.writelines(quizList)
     file.close()
+    return file
 
 # def get_db():
 #     db = getattr(g, '_database', None)
@@ -132,7 +133,7 @@ def save():
     #response.set_cookie('question', json.dumps(data)) #dumps creates a string!
     return response
 
-@app.route("/latex/")
+@app.route("/latex/", methods=["GET"])
 def writeLatex():
     db = get_db()
     cur = db.execute('select * from questions')
@@ -145,8 +146,16 @@ def writeLatex():
         for line in questionLatex:
             quiz_to_print.append(line + '\n')
 
-    fileW(quiz_to_print)
-    return 'Successfullly wrote "generatedQuiz.tex"'
+    quiz_to_print.insert(0,FILE_START)
+    quiz_to_print.append(FILE_END)
+    output = ""
+    for line in quiz_to_print:
+        output += line
+    response = make_response(output)
+    response.headers["Content-Disposition"] = "attachment; filename=disco.tex"
+    return response
+
+    #return 'Successfullly wrote "generatedQuiz.tex"'
 
 
 if __name__ == "__main__":
