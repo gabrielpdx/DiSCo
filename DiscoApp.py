@@ -37,12 +37,6 @@ def init_db():
         db.cursor().executescript(f.read())
     db.commit()
 
-# @app.cli.command('initdb')
-# def initdb_command():
-#     """Initializes the database."""
-#     init_db()
-#     print ('Initialized the database.')
-
 def get_db():
     """Opens a new database connection if there is none yet for the
     current application context.
@@ -57,43 +51,10 @@ def close_db(error):
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
-FILENAME = "generatedQuiz.tex"
-
-def fileW(quizList):
-    file = ""
-    while not file:
-        file = open(FILENAME,"w")
-    quizList.insert(0,FILE_START)
-    quizList.append(FILE_END)
-    file.writelines(quizList)
-    file.close()
-    return file
-
-# def get_db():
-#     db = getattr(g, '_database', None)
-#     if db is None:
-#         db = g._database = connect_to_database()
-#     return db
-#
-# @app.teardown_appcontext
-# def close_connection(exception):
-#     db = getattr(g, '_database', None)
-#     if db is not None:
-#         db.close()
-
 def writeQuestionToDB(conn, question):
     writer = DBWriter(conn)
     writer.addQuestion(question)
     writer.writeToDB()
-
-
-
-# def get_saved_data():
-#     try:
-#         data = json.loads(request.cookies.get('question')) #loads loads a string
-#     except TypeError:
-#         data = {}
-#     return data
 
 @app.route("/init/", methods=["GET"])
 def oneTimeInit():
@@ -104,9 +65,6 @@ def oneTimeInit():
 
 @app.route("/", methods=["GET"])
 def index():
-    # init_db()
-    #initDiscoDB(conn)
-    #data = get_saved_data()
     return render_template("mockup.html")#, saves=data)
 
 @app.route("/", methods=["POST"])
@@ -122,15 +80,6 @@ def save():
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', question.asRow)
     db.commit()
     flash('New question written successfully')
-
-    # data = get_saved_data()
-    # data.update(dict(request.form.items()))
-    #import pdb; pdb.set_trace()
-    #writeQuestionToDB(conn, question)
-    #import pdb; pdb.set_trace()
-
-    ## the name of the cookie, and the dict
-    #response.set_cookie('question', json.dumps(data)) #dumps creates a string!
     return response
 
 @app.route("/latex/", methods=["GET"])
@@ -154,9 +103,6 @@ def writeLatex():
     response = make_response(output)
     response.headers["Content-Disposition"] = "attachment; filename=disco.tex"
     return response
-
-    #return 'Successfullly wrote "generatedQuiz.tex"'
-
 
 if __name__ == "__main__":
     app.run(debug=True)
