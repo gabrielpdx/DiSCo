@@ -4,7 +4,6 @@ import sqlite3
 from flask import (Flask, session, abort, render_template, redirect,
                     url_for, request, make_response, g, flash)
 
-from initDiscoDB import initDiscoDB
 from Question import Question
 from latexConstants import FILE_START, FILE_END
 
@@ -67,8 +66,6 @@ def clearDB():
     db.execute("DELETE FROM questions;")
     db.commit()
     flash("Database cleared successfully")
-    #db.execute("DROP TABLE IF EXISTS questions")
-    #init_db()
     response = make_response(redirect(url_for('index')))
     return response
 
