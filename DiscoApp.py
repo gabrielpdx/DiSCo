@@ -53,7 +53,14 @@ def oneTimeInit():
     init_db()
     response = make_response(redirect(url_for('index')))
     return response
-
+    
+@app.route("/clear/", methods=["GET"])
+def clearDB():
+    db = get_db()
+    db.execute("DROP TABLE IF EXISTS questions")
+    init_db()
+    response = make_response(redirect(url_for('index')))
+    return response
 
 @app.route("/", methods=["GET"])
 def index():

@@ -1,5 +1,5 @@
 drop table if exists entries;
-create table questions (
+create table if not exists questions (
   primarySubject text not null,
   secondarySubject text not null,
   family text not null,
