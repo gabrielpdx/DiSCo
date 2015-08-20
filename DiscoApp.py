@@ -31,8 +31,8 @@ def get_db():
     if not hasattr(g, 'sqlite_db'):
         g.sqlite_db = connect_db()
     return g.sqlite_db
-   
-    
+
+
 @app.before_first_request
 def init_db():
     db = get_db()
@@ -59,7 +59,7 @@ def oneTimeInit():
     response = make_response(redirect(url_for('index')))
     return response
 
-    
+
 @app.route("/clear/", methods=["GET"])
 def clearDB():
     db = get_db()
@@ -112,6 +112,12 @@ def writeLatex():
     response = make_response(output)
     response.headers["Content-Disposition"] = "attachment; filename=disco.tex"
     return response
+
+@app.route("/rct/", methods=["GET"])
+def reactTest():
+    return render_template("reactTest.html")
+
+
 
 
 if __name__ == "__main__":
