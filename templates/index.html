@@ -8,14 +8,16 @@
 <body>
 <h1>DiSCo</h1>
 <h2>Discrete Structures Computation<br>for fun, for everyone!<br></h2>
-<h3>Assemble your next Latex-encoded quiz or test by entering one
+<h4>Assemble your next LaTeX-encoded quiz or test by entering one
     question at a time.<br>Just fill in the fields and hit the ADD button
-    for each question!</h3>
-<h3>When your database is complete, press DOWNLOAD at the bottom.</h3>
+    for each question!</h4>
+<h4>When you have entered all your questions, press DOWNLOAD at the bottom.<br>
+    For now, all entered questions are included in the quiz. But don't worry,<br>
+    Disco is in active development and more complex quiz population is coming.</h4>
 <h3>Thank you for trying DiSCo! All source available at
     <br><a href="http://git.io/disco">GitHub</a>, licensed under LGPL V3</h3>
 
-<form action="{{ url_for('save') }}" method="POST">
+<form action="{{ url_for('insertQuestion') }}" method="POST">
     <div id="uiColumn">
         <ul>
             <li><input name="primarySubject" list="primarySubjects" placeholder="Category..."></li>
@@ -52,7 +54,7 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select></li>
-            <li><textarea name="question" placeholder="Question text (Latex)...">
+            <li><textarea name="question" placeholder="Question text (LaTeX)...">
             </textarea></li>
             <li>Index of correct response:<select name="correctResponseIndex">
                 <option value="0">0</option>
@@ -60,17 +62,22 @@
                 <option value="2">2</option>
                 <option value="3">3</option>
             </select></li>
-            <li><input name="response0" type="text" placeholder="Response 0 (Latex)..."></input></li>
-            <li><input name="response1" type="text" placeholder="Response 1 (Latex)..."></input></li>
-            <li><input name="response2" type="text" placeholder="Response 2 (Latex)..."></input></li>
-            <li><input name="response3" type="text" placeholder="Response 3 (Latex)..."></input></li>
+            <li><input name="response0" type="text" placeholder="Response 0 (LaTeX)..."></input></li>
+            <li><input name="response1" type="text" placeholder="Response 1 (LaTeX)..."></input></li>
+            <li><input name="response2" type="text" placeholder="Response 2 (LaTeX)..."></input></li>
+            <li><input name="response3" type="text" placeholder="Response 3 (LaTeX)..."></input></li>
         </ul>
         <input id="submitButton" type="submit" value="ADD the question above to the database">
     </div>
 </form>
 <form action="{{ url_for('writeLatex') }}">
     <div id="uiColumn">
-        <input id="submitButton" type="submit" value="DOWNLOAD quiz (Latex)">
+        <input id="submitButton" type="submit" value="DOWNLOAD quiz (LaTeX)">
+    </div>
+</form>
+<form action="{{ url_for('clearDB') }}">
+    <div id="uiColumn">
+        <input id="submitButton" type="submit" value="CLEAR the contents of the database">
     </div>
 </form>
 <h4><br><br>Copyright (c) K. Gabriel Rosati 2015<br>
