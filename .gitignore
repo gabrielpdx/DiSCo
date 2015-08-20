@@ -1,22 +1,11 @@
-<<<<<<< HEAD
 venv
 venv/*
 __pycache__
 __pycache__/*
 disco.db
-=======
-.idea
-.idea/*
-__pycache__
-__pycache__/*
 .DS_Store
 disco.db
 *.swp
 old_utils
 old_utils/*
 *.tex
-rhcloud/venv
-rhcloud/venv/*
-rhcloud/__pycache__
-rhcloud/.openshift
->>>>>>> 74c2eb4e81caf2846a07b84862f2b118b9eb8208
