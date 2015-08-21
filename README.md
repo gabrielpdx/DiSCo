@@ -3,7 +3,8 @@ Thank you for your interest in DiSCo, Discrete Structures Computation for fun, f
 
 Simply run `$ python3 DiscoApp.py` locally and point your browser at localhost:5000 to manage a local SQLite database and generate LaTeX-formatted quizzes.
 
-Currently a proof-of-concept in active development, a single instance of this module of the DiSCo project is running on the Red Hat Openshift PaaS - check it out: [DiSCo Quiz Creator 0.1](http://disco-gpdx.rhcloud.com/)
+###The Web App:
+Currently a proof-of-concept in active development, a single instance of this module is running on the Red Hat Openshift PaaS - check it out: [DiSCo Quiz Creator 0.1](http://disco-gpdx.rhcloud.com/)
 ### Goals:
 This project is intended to produce modules of use to instructors and students of
 introductory Discrete Mathematics e.g. CS 250/251 at Portland State University MCECS.
