@@ -121,8 +121,10 @@ def writeLatex():
     return response
 
 @app.route("/rct/", methods=["GET"])
-def reactTest():
-    return render_template("reactTest.html")
+@app.route("/rct/<hello>")
+def reactTest(hello="Gabe", iterable=[]):
+    iterable = [1,2,3]
+    return render_template("reactTest.html", hello=hello, iterable=iterable)
 
 
 
